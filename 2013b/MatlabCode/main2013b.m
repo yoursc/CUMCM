@@ -4,13 +4,13 @@ clear all
 clc
 img_num = [1 19 0 0 0]; %碎片 [行数 列数 总数 片像素行数 片像素列数]
 img_num(3) = img_num(1) * img_num(2); %碎片总数
-img_dir = '../1/';
+img_dir = '../img/1/';
 %% 加载图片
 img = cell(1,img_num(3)); %碎片图像
 for k = 1:img_num(3)
     file_name = sprintf( '%03i.bmp',k-1 );
     str = strcat([img_dir,file_name]);
-    %img{k+1} = im2bw(imread(str));
+    %img{k} = im2bw(imread(str));%以二值的形式载入图像
     img{k}= (imread(str));
 end
 img_num(4:5) = size(img{1});
@@ -34,6 +34,7 @@ for m = 1:img_num(3)
 for n = 1:img_num(3)
     if m==n
         like_R(m,n)=0;
+        like_C(m,n)=0;
     else
         like_R(m,n) =like(feature{4,m},feature{3,n});
         %纸片(i)右侧 和 纸片(j)左侧 的相似度矩阵
