@@ -1,3 +1,6 @@
+clear all
+close all
+clc
 %% 载入基本参数
 %公司方面参数
 bike_company = [ ...
