@@ -1,3 +1,4 @@
+%% 主程序
 clear all
 close all
 clc
@@ -28,9 +29,9 @@ bike_company = [ ...
 %企业战略
 bike_aim = [ ...
     0 ... %01 投入车辆（万辆）
-    2 ... %02 
-    3 ... %03 
-    4 ... %04 
+    0 ... %02 增加客服人员数量（人）
+    0 ... %03 增加维修队数量（队）
+    0 ... %04 增加调度队数量（队）
     5 ... %05 
     ];
 
@@ -42,6 +43,6 @@ bike_limit = [ ...
     4 ... %04
     5 ... %05
     ];
-
+%% 基本模型求解
 income = getincome(bike_company)
 expend = getexpend(bike_company,bike_aim)
